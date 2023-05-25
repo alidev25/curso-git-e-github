@@ -1,0 +1,112 @@
+== Git e GutHub == 
+
+-> Git e GitHub são coisas diferentes 
+ 
+Git: Sistema que grava as mudanças feitas em nossos arquivos ao longo
+do tempo por meio de "snapshots"
+
+- Podemos voltar em uma determina mudança a qualquer momento 
+- Permite a colaboração de varios desenvolvedores no projeto 
+
+Fluxo Git: 
+==
+git init : Inicializa o repositório Git (necessario) 
+git add. : Prepara os arquivos para serem commitados 
+git commit -m "Mensagem".: Faz o commit dos arquivos preparados
+==
+
+Primeiras configurações: 
+==
+git config --global user.name "Ali Ahmad" -> Configurando um Username
+git config --global user.email "ali@teste.com" -> Configurando um Email
+==
+
+Comandos Importantes:
+==
+git status                 -> Mostrar os arquivos que estão ou não preparados para o commit
+git add index.html         -> Adicionando um arquivo para ser commitado 
+git rm --cached index.html -> Remover o arquivo preparado 
+git add . 		   -> Adiciona todos os arquivos 
+
+git commit -m "Primeiro commit" -> Commitando arquivos 
+git log -> Ver o log de todos os commits 
+==
+
+Git Ignore:
+
+Utilizado quando possuir algum arquivos que não deve ser commitado 
+-> Criado um arquivo .gitignore 
+-> Dentro desse arquivo a gente passa o nome do arquivo que não pode ser commitado
+
+
+**Branches -> Ramificações do versionamento de codigo (pastas) 
+-> Separando as branches (Desenv, Produção(master)) ...
+
+git branch (nome da branch)   -> Criar uma nova branch 
+git branch 		      -> Verifica todas as branchs desse projeto 
+git checkout (nome da branch) -> Troca de Branch 
+
+Exemplo: 
+  git checkout development 
+  git branch cadastro-cliente 
+  git checkout cadastro-cliente 
+  
+  master (branch master)
+  development (branch)
+   -> cadastro-cliente (branch)
+       .cadastro-cliente/cadastro-cliente.js (arquivo)
+
+ -> Se criarmos uma pasta dentro da branch cadastro-cliente e commitar 
+ -> Quando voltamos para a branch developmente a pasta some pois esta em outra 
+ramificação 
+
+
+Enviar da branch (cadastro-cliente) para a (development)
+ 
+git checkout development   -> Vamos para branch que queremos o arquivo
+git merge cadastro-cliente -> Damos um merge na branch  
+
+O arquivo já vai estar aparecendo na branch development
+
+-------------------------------------------------------------------------------------
+
+== GITHUB == 
+
+Lugar onde vamos guardar nosso repositórios Git 
+Git -> Fica local na pasta 
+
+Integração do repositorio local ao remoto 
+
+Criado um novo repositório no GitHub 
+
+git remote add origin https://github.com/alidev25/curso-git-e-github.git -> Copiar esse comando 
+
+git remote 	   	-> Podemos ver o origin adicionado 
+git branch -M main 	-> Alterando o nome da Master para Main (Convensão) 
+git push -u origin main -> Puxar tudo o que esta no repositório local da branch main 
+
+-> Já será adicionado no GitHub 
+
+Push nas outras branchs (developmente)
+
+git checkout development 
+git push -u origin development
+
+git clone https://github.com/alidev25/curso-git-e-github.git -> Clonar o repositório do Github 
+
+git pull 	     -> Atualiza no local do jeito que esta no repositório remoto 
+git pull origin main -> Atualiza apenas a branch solicitada
+
+--------------------------------------------------------------------------------------------------
+
+== EXTENSOES VSCODE ==
+gitlens -> Verificar em cada linha de codigo quem modificou e o horario
+
+==
+[IMPORTANTE] 
+Obs: Se na hora do git push der algum erro de acesso negado 
+Painel de Controle >  Contas de Usuario > Gerenciar suas credenciais > Credenciais do Windows (remover)
+==
+
+
+
